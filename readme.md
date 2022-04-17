@@ -1,9 +1,11 @@
 # Spin up docker containers steps
 
-With docker-compose
+Includes a simple CRUD app to test everything out before moving on
+
+With docker-compose: 
 `docker-compose up`
 
-Withought docker-compose
+Withought docker-compose:
 
 ## 1. Mongo db database
 
