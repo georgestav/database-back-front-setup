@@ -7,7 +7,7 @@ Withought docker-compose
 
 ## 1. Mongo db database
 
-`docker run -d --rm --name mongodb --network goals-net -v data:/data/db -e MONGO_INITDB_ROOT_USERNAME=george -e MONGO_INITDB_ROOT_PASSWORD=12345678 mongo`
+`docker run -d --rm --name mongodb --network goals-net -v data:/data/db -e MONGO_INITDB_ROOT_USERNAME=username -e MONGO_INITDB_ROOT_PASSWORD=pass mongo`
 
 ### Breakdown:
 
@@ -17,8 +17,8 @@ Withought docker-compose
 > --name mongodb <br>
 > --network goals-net (to assign to a network) <br>
 > -v data:/data/db (to persist data) <br>
-> -e MONGO_INITDB_ROOT_USERNAME=george <br>
-> -e MONGO_INITDB_ROOT_PASSWORD=12345678 <br>
+> -e MONGO_INITDB_ROOT_USERNAME=username <br>
+> -e MONGO_INITDB_ROOT_PASSWORD=pass <br>
 > mongo (to call the mongo image)<br>
 
 ## 2. backend - Create image and run the container using the Dockerfile
@@ -36,7 +36,7 @@ Withought docker-compose
 
 ### b. Run the container
 
-`docker run -p 80:80 --name goals-backend --network goals-net -d --rm -v /web/docker-practice/multi-01-starting-setup/backend:/app -v logs:/app/logs -v /app/node_modules -e MONGODB_USERNAME=george -e MONGODB_PASSWORD=12345678 goals-node`
+`docker run -p 80:80 --name goals-backend --network goals-net -d --rm -v /web/docker-practice/multi-01-starting-setup/backend:/app -v logs:/app/logs -v /app/node_modules -e MONGODB_USERNAME=username -e MONGODB_PASSWORD=pass goals-node`
 
 #### Breakdown
 
@@ -49,8 +49,8 @@ Withought docker-compose
 > -v /web/docker-practice/multi-01-starting-setup/backend:/app (write file changes to /app)<br>
 > -v logs:/app/logs (persist logs)<br>
 > -v /app/node_modules (do not ovewrite node_modules with host file empty node_modules folder)<br>
-> -e MONGODB_USERNAME=george<br>
-> -e MONGODB_PASSWORD=12345678<br>
+> -e MONGODB_USERNAME=username<br>
+> -e MONGODB_PASSWORD=pass<br>
 > goals-node (to call the node image)<br>
 
 ## 3. frontend - Create image and run the container using the Dockerfile
